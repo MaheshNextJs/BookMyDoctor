@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doctor Profile – BookMyDoctor</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="position-relative mb-5 text-center">
+        <div class="position-absolute top-0 end-0 mt-2 me-3 d-flex gap-3">
+          <a
+            href="https://www.bookmydoctorindia.com"
+            target="_blank"
+            title="Website"
+          >
+            <i class="bi bi-globe fs-5 text-dark"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/company/bookmydoctor"
+            target="_blank"
+            title="LinkedIn"
+          >
+            <i class="bi bi-linkedin fs-5 text-primary"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/bookmydoctor2025"
+            target="_blank"
+            title="Instagram"
+          >
+            <i class="bi bi-instagram fs-5 text-danger"></i>
+          </a>
+          <a
+            href="https://twitter.com/BookMyDoctor25"
+            target="_blank"
+            title="Twitter"
+          >
+            <i class="bi bi-twitter-x fs-5 text-dark"></i>
+          </a>
+        </div>
+
+        <h1 class="text-primary">BookMyDoctor</h1>
+        <p class="text-muted">Organized & Created by Mahesh Bairi</p>
+      </div>
+
+      <div class="mb-4">
+        <label for="doctorSelect" class="form-label">Select Doctor</label>
+        <select id="doctorSelect" class="form-select" style="max-width: 300px">
+          <option value="ravi">Dr. Ravi Sharma</option>
+          <option value="krishna">Dr. Krishna</option>
+        </select>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex align-items-center">
+            <img
+              src="assets/doctor1.jpg"
+              id="doctor-photo"
+              class="rounded-circle me-4"
+              alt="Doctor Photo"
+              style="width: 100px; height: 100px; object-fit: cover"
+            />
+            <div>
+              <h4 id="doctor-name">Dr. Ravi Sharma</h4>
+              <p class="mb-1 text-muted" id="specialty">General Physician</p>
+              <div class="d-flex align-items-center">
+                <img
+                  src="assets/hospital-logo.png"
+                  alt="Hospital Logo"
+                  style="width: 24px; height: 24px"
+                  class="me-2"
+                />
+                <p class="mb-0" id="hospital">Apex Multispeciality</p>
+              </div>
+            </div>
+          </div>
+
+          <ul class="nav nav-tabs mt-4" id="consultationTabs">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                id="inPerson-tab"
+                data-bs-toggle="tab"
+                href="#inPerson"
+                >🏥 In-Person</a
+              >
+            </li>
+            <li class="nav-item" id="online-tab-li">
+              <a
+                class="nav-link"
+                id="online-tab"
+                data-bs-toggle="tab"
+                href="#online"
+                >💻 Online</a
+              >
+            </li>
+          </ul>
+
+          <div class="tab-content mt-3">
+            <div class="tab-pane fade show active" id="inPerson">
+              <h6>Available Slots:</h6>
+              <div id="inPersonSlots" class="mb-2"></div>
+              <p>Fee: ₹<span id="inPersonFee">300</span></p>
+              <a
+                href="booking.html"
+                onclick="localStorage.setItem('selectedDoctor', document.getElementById('doctor-name').textContent)"
+                class="btn btn-primary"
+                >Book Appointment</a
+              >
+            </div>
+
+            <div class="tab-pane fade" id="online">
+              <h6>Available Slots:</h6>
+              <div id="onlineSlots" class="mb-2"></div>
+              <p>Fee: ₹<span id="onlineFee">500</span></p>
+              <a
+                href="booking.html"
+                onclick="localStorage.setItem('selectedDoctor', document.getElementById('doctor-name').textContent)"
+                class="btn btn-primary"
+                >Book Appointment</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

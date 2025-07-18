@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Appointment – BookMyDoctor</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container py-4 mt-2">
+      <div class="text-center mb-2">
+        <h1 class="text-primary">BookMyDoctor</h1>
+        <p class="text-muted">Organized & Created by Mahesh Bairi</p>
+      </div>
+
+      <div class="card shadow p-4">
+        <h4 class="mb-3 text-center text-secondary">Book an Appointment</h4>
+        <p class="mb-3">
+          <strong>Doctor:</strong> <span id="doctorName"></span>
+        </p>
+        <form id="bookingForm">
+          <div class="mb-3">
+            <label class="form-label">Patient Name</label>
+            <input type="text" class="form-control" id="patientName" required />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Mobile Number</label>
+            <input type="tel" class="form-control" id="mobile" required />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Age</label>
+            <input type="number" class="form-control" id="age" required />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Gender</label>
+            <select class="form-select" id="gender" required>
+              <option value="">Select Gender</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Booking Type</label>
+            <select id="bookingType" class="form-select" required></select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Preferred Time</label>
+            <select id="slot" class="form-select" required>
+              <option value="">Select Time</option>
+              <option>Morning (9 AM - 12 PM)</option>
+              <option>Evening (4 PM - 7 PM)</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Date</label>
+            <input type="date" class="form-control" id="date" required />
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100">
+            Confirm Booking
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      const doctorName = localStorage.getItem("selectedDoctor") || "Doctor";
+      document.getElementById("doctorName").textContent = doctorName;
+
+      const bookingType = document.getElementById("bookingType");
+      if (doctorName.includes("Ravi")) {
+        bookingType.innerHTML = `
+          <option value="inperson">In-Person</option>
+          <option value="online">Online</option>`;
+      } else {
+        bookingType.innerHTML = `<option value="inperson">In-Person</option>`;
+      }
+
+      document.getElementById("bookingForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        alert("Booking confirmed successfully!");
+        window.location.href = "index.html";
+      });
+    </script>
+  </body>
+</html>
